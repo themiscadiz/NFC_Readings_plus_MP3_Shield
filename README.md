@@ -1,16 +1,16 @@
 # NFC_Readings_plus_MP3_Shield
- Technical implementation of NFC Reading with MP3 Shield for Viewer device prototype
+ Technical implementation of NFC Reader with MP3 Shield for Viewer device prototype.
  <!-- Every README should start with an H1 -->
 ## Readme
 <!-- A one sentence description of the project or assignment -->
-This documentation is part of a student group project for Access and Assistive Technology in Historic Sites and Museums in NYU. This readme is about a project to tackle Information Overload in museums and historical sites. 
+This documentation is part of a student group project for Access and Assistive Technology in Historic Sites and Museums in NYU. This readme is for a project to tackle Information Overload in museums and historical sites. 
 
 ![TechComponents](https://lh3.googleusercontent.com/EFM9miqGuEJ1OTFOHIwYFoqEBt3Xx3hkn_obwp70h6I-Zx1jVLuQnkH0T_rMP4FOSJVN6-2h-PyPoCX2G1j-2E1pghRyyVgCIByZp6SFeWW9dbTaqwzWAIOkE8dPH6xIwyF2b5hNuTaMPmtphnCOBurn2ML_4MXC3khVFDHXAx1dFrK69tiI3rM1SHm4PXjZ7svMlUfdbOkavEE3vM3FRMpuowAyQQyhvHtS5vzNlZEpDS2QlUvD1k6eV_-zlO34r2vdCY9Q3xtFWtVwlxT_39lmlsUQQ-lLGdaD1qmKwtONFqk-M9gecsnanRTyZjGqq8z_ec-Sentac93Jq5bshbQd73b4Zfd4vONFNJbGkPKk1SC6mcZC-2hc4dnlBXoJXK0k1BioqkR1s6ddQy9LraXtsjUGqySf5HGtzjAC46yhpYinWI0RPfld5msfizbM-BBCPq5t3OcM4VxBbvuv1Yd8en-wVrXpMfpLhPPwQs100phB8OL3Gh7zCC-1OUcsjlsPZxA1DGcwVtjUVB0s_YB_IaZ4ZqT5WAvm5FwIt_QpMj54f-ouMj-PZv9oFQdQTjsOYblJHOuS-1S-UtJEJF5WFSQzisxHaazLW4K0VQcGJpkTaEfcWVaxxz6K1DnRGm2pCV3YBmWzPceBb-HuKHk5xinswL_ItNXR-0n3pne2Li7cQr-bQD95P5MC=w849-h508-no)
 
 <!-- It is good practice to add an about or summary -->
 ## About
 
-The code here documented it is for a circuit that triggers audio when the NFC reader identified an specific NFC tag. Here is the code implemented, information about libraries, electronic devidces and any other related material. 
+The code documented here is for a circuit that triggers audio when the NFC reader identifies an specific NFC tag. Here is the code, information about libraries, arduino shields and any other related material. 
 
 Most of the development of this test code was using an example code for PN532 Library **readMifare** code and the example code **PlayATrack** from the CytronEasyMP3 library.
 
@@ -21,7 +21,7 @@ This documentation is for educational purposes and meant to build a prototype.
 <!-- Any knowledge or tools you will need before hand -->
 ### Prerequisites
 
-To complete apply this code you need:
+You need:
 
 1. Arduino (I am using the Arduino Uno) with USB cable to connected to computer.
 2. NFC Shield - PN532 NFC/RFID Shield
@@ -45,12 +45,12 @@ To complete apply this code you need:
 ### Installation
 1. Download [Arduino](https://www.arduino.cc/en/Main/Software)
 
-For this particular project you need to install in Arduino:
+For this particular project you need to install a few libraries for Arduino:
 
 * [CytronEZMP3 Library](https://github.com/CytronTechnologies/Cytron-EasyMP3-Shield)
 * [Adafruit NFCShield_I2C Library](https://github.com/adafruit/Adafruit_NFCShield_I2C)
 
-**Note:** Until the moment that I am write this note, the last available version of the Adafruit NFC Lirary was broken for my Adafruit NFC Shield. I used this previous version {}() for the prototype. 
+**Note:** Until the moment that I am write this note, the last available version of the Adafruit NFC Lirary was broken for my Adafruit NFC Shield. I used this previous version for the prototype. 
 Please, refer to the [Adafruit PN532 RFID/NFC Breakout and Shiel documentation](https://learn.adafruit.com/adafruit-pn532-rfid-nfc) for more information
 
 
@@ -59,26 +59,26 @@ Please, refer to the [Adafruit PN532 RFID/NFC Breakout and Shiel documentation](
 
 To develop this prototype, you can follow the steps provided below:
 
-1. Add an MP3 Audion in to the Micro SD Card. A short and Clear audio it better for testing.
+1. Add an MP3 file in to the Micro SD Card. A short and clear audio it better for testing.
 
-2. In the Cytron Easy MP3 Shield, in the VART Selector Sections change the jumper selectors into pins into D9 and D8. This change the Jumper selectors of the example to select different Control pins.In this case its changed it from 2 and 3 pins to 8 and 9 pinds.
+2. In the Cytron Easy MP3 Shield, in the VART Selector Sections change the jumper selectors into pins into D9 and D8. This changes the Jumper selectors of the example to select different Control pins. In this case its changed it from 2 and 3 pins to 8 and 9 pins.
 
 ![TechComponents](https://lh3.googleusercontent.com/8pHnRbVk0Je327qLzQO2h2VPsgNQjRNwQELiMX8puksVei5NtS2yP1RlEhrjlrvzb7u6A0nh7KP1aoqWP0_2jCPOoG7BHRooDJEza0WCA0dQrkjBu7TP45xD2iD4MljFmzoHZvCQeqLAuAa-oEQvwjtQr2leSNOV4U7FavC48VuK4BZKbsYys42tuSUJ1nZbF-OVLKvt-dseV2xBCO2JVYtA477j8QoaKqsdQ9o48Z_dJDDXNAoGEdp2ebfSpWL0HfHpPTKM_IP5-dMIzd3cQGa0_GJiIY8WPvammRKfPnA-OWCAf4L8_cHR-pv69FhDBpzE9EYKWz7uqxBMJ0W5Ear9tst5AW1fOr6DRLiHufucQbbEIbHlYs-VpWtipDOGa7cmA41EjNQEe1-GT-R41Kcc55f0pFV0T7kS434D8U4F8pJy-Gr0JIU_MjmQ3FxwItQ22bzzyzKFiQmI4Pbw5gixwXVvk4yOtcPbHtTemQ9sC4WngBP_AYN6qrEfz8n6LaFB6nEhnPEwdX4i2zKjqyJ-L7uNuo9J9jRNeV4J0rrbqnRL9ipEawWhoERJSC8l0KbnWBd76hSZ8T-vGXznPjjazCsoqtOdIaloPrHK0AUaL9DNQHMyAG0uH1PgIj_0H3pAeXc0fFMi9MByUTifDOzeHi3ugPPNMpwpab2C_0pqZO0A5cykempkjGX1=w302-h240-no)
 
-3. The Cytron Easy MP3 Shield comes with audiojack, but in case to prefers speakers, you can attached through the audio jack or soldering into the shield. 
+3. The Cytron Easy MP3 Shield comes with an audiojack, but in case you prefers speakers, you can attach through the audio jack or by soldering onto the shield. 
 
 4. Stack the Arduino Uno &rarr; Cytron Easy MP3 Shield &rarr; PN532 NFC/RFID Shield
 
 ![TechComponents](https://lh3.googleusercontent.com/EFM9miqGuEJ1OTFOHIwYFoqEBt3Xx3hkn_obwp70h6I-Zx1jVLuQnkH0T_rMP4FOSJVN6-2h-PyPoCX2G1j-2E1pghRyyVgCIByZp6SFeWW9dbTaqwzWAIOkE8dPH6xIwyF2b5hNuTaMPmtphnCOBurn2ML_4MXC3khVFDHXAx1dFrK69tiI3rM1SHm4PXjZ7svMlUfdbOkavEE3vM3FRMpuowAyQQyhvHtS5vzNlZEpDS2QlUvD1k6eV_-zlO34r2vdCY9Q3xtFWtVwlxT_39lmlsUQQ-lLGdaD1qmKwtONFqk-M9gecsnanRTyZjGqq8z_ec-Sentac93Jq5bshbQd73b4Zfd4vONFNJbGkPKk1SC6mcZC-2hc4dnlBXoJXK0k1BioqkR1s6ddQy9LraXtsjUGqySf5HGtzjAC46yhpYinWI0RPfld5msfizbM-BBCPq5t3OcM4VxBbvuv1Yd8en-wVrXpMfpLhPPwQs100phB8OL3Gh7zCC-1OUcsjlsPZxA1DGcwVtjUVB0s_YB_IaZ4ZqT5WAvm5FwIt_QpMj54f-ouMj-PZv9oFQdQTjsOYblJHOuS-1S-UtJEJF5WFSQzisxHaazLW4K0VQcGJpkTaEfcWVaxxz6K1DnRGm2pCV3YBmWzPceBb-HuKHk5xinswL_ItNXR-0n3pne2Li7cQr-bQD95P5MC=w849-h508-no)
 
-5. Connect the Ardiono with the shield into the computer.
+5. Connect the Arduino to the computer.
 
 6. Download and run the Arduino code from in this repository.
 
 <!-- Notes about the deployment -->
 ### Deployment
 
-The code has annotations of wich part modified to change the ID numbers of the NFC tags to your NFC tags ID
+The code has annotations of which part was modified to change the ID numbers of the NFC tags to your NFC tags ID
 
 ## Built with
 
@@ -93,7 +93,7 @@ The code has annotations of wich part modified to change the ID numbers of the N
 
 ## Authors
 
-* [Themis Garcia](https://jk-lee.com) -- student -- [NYU ITP](https://itp.nyu.edu)
+* [Themis Garcia](https://themis.design) -- student -- [NYU ITP](https://itp.nyu.edu)
 
 ## Code of Conduct
 
@@ -102,7 +102,7 @@ Please read the [CODE OF CONDUCT](https://www.mozilla.org/en-US/about/governance
 <!-- thank and reference all the things that made your project happen -->
 ## Acknowledgements
 
-* **Thanks to Antonio M Guimaraes tu recommendations in the technical and accessibility aspect of this project.** 
+* **Thanks to Antonio M Guimaraes for recommendations on the technical and accessibility aspect of this project.** 
 * [Cytron Easy MP3 Shield](https://www.cytron.io/p-cytron-easy-mp3-shield) for their product and documentation
 * [Adafruit](https://learn.adafruit.com/adafruit-pn532-rfid-nfc) for their product and documentation
 
