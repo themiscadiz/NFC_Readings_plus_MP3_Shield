@@ -1,7 +1,7 @@
 # NFC_Readings_plus_MP3_Shield
  Technical implementation of NFC Reading with MP3 Shield for Viewer device prototype
  <!-- Every README should start with an H1 -->
-# The Good Project Readme Project
+## Readme
 <!-- A one sentence description of the project or assignment -->
 This documentation is part of a student group project for Access and Assistive Technology in Historic Sites and Museums in NYU. This readme is about a project to tackle Information Overload in museums and historical sites. 
 
@@ -83,6 +83,13 @@ The code has annotations of wich part modified to change the ID numbers of the N
 ## Built with
 
 * [Arduino](https://www.arduino.cc/en/Main/Software)
+
+## Resources
+
+* Adafruit PN532 RFID/NFC Breakout and Shield - [Manual](https://learn.adafruit.com/adafruit-pn532-rfid-nfc)
+* Cytron MP3 Shield - [Product User’s Manual – SHIELD-EZMP3](https://docs.google.com/document/d/101Qs505IN7JQJY7b37-N_AsBFobXRuo6P5pLzN-WvWk/view#)
+* N532 Library - **readMifare** example 
+* CytronEasyMP3 library - **PlayATrack** example
 
 ## Authors
 
