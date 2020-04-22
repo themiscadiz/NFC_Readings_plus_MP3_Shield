@@ -48,7 +48,7 @@ To complete apply this code you need:
 For this particular project you need to install in Arduino:
 
 * [CytronEZMP3 Library](https://github.com/CytronTechnologies/Cytron-EasyMP3-Shield)
-* [Adafruit NFCShield]()
+* [Adafruit NFCShield_I2C Library](https://github.com/adafruit/Adafruit_NFCShield_I2C)
 
 **Note:** Until the moment that I am write this note, the last available version of the Adafruit NFC Lirary was broken for my Adafruit NFC Shield. I used this previous version {}() for the prototype. 
 Please, refer to the [Adafruit PN532 RFID/NFC Breakout and Shiel documentation](https://learn.adafruit.com/adafruit-pn532-rfid-nfc) for more information
@@ -88,7 +88,7 @@ The code has annotations of wich part modified to change the ID numbers of the N
 
 * Adafruit PN532 RFID/NFC Breakout and Shield - [Manual](https://learn.adafruit.com/adafruit-pn532-rfid-nfc)
 * Cytron MP3 Shield - [Product User’s Manual – SHIELD-EZMP3](https://docs.google.com/document/d/101Qs505IN7JQJY7b37-N_AsBFobXRuo6P5pLzN-WvWk/view#)
-* N532 Library - **readMifare** example 
+* [Adafruit NFCShield_I2C Library](https://github.com/adafruit/Adafruit_NFCShield_I2C) - **readMifare** example 
 * CytronEasyMP3 library - **PlayATrack** example
 
 ## Authors
