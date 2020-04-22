@@ -1,4 +1,17 @@
 /**************************************************************************/
+
+/*
+    Test Code for Information Overload Viewer
+    
+    @file     NFC_Readings_plus_MP3_Shield.ino
+    @author   Themis Garcia
+
+    Code based makes use of Adafriut readMiFare for NFC Shield.
+    Using depracated library because the new one is not working at this time
+    https://github.com/adafruit/Adafruit_NFCShield_I2C
+    
+*/
+
 /*! 
     @file     readMifare.pde
     @author   Adafruit Industries
@@ -32,6 +45,9 @@
     please support Adafruit and open-source hardware by purchasing 
     products from Adafruit!
 */
+
+
+
 /**************************************************************************/
 #include <Wire.h>
 #include <Adafruit_NFCShield_I2C.h>
@@ -41,12 +57,13 @@
 
 Adafruit_NFCShield_I2C nfc(IRQ, RESET);
 
+// here we establish save the tag we are looking to trigger audio playback
+
 uint8_t testTag[] = {4, 121, 10, 42, 34, 75, 132};
 
-//MP3 Shield stuff
+// MP3 Shield setup
 
 #include <CytronEZMP3.h>
-
 CytronEZMP3 mp3;
 
 
@@ -54,7 +71,7 @@ void setup(void) {
   Serial.begin(115200);
   Serial.println("Hello!");
 
-    pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 
   nfc.begin();
 
@@ -73,7 +90,10 @@ void setup(void) {
   
   Serial.println("Waiting for an ISO14443A Card ...");
 
-  // MP3 Shield setup
+  // MP3 Shield Setup.
+  // Notice the use of pins 8 and 9.
+  // On the shield, make sure the jumpers are placed correctly.
+  
   if(!mp3.begin(8, 9))
   {
     Serial.println("Init failed");
@@ -85,6 +105,7 @@ void setup(void) {
 
   Serial.print("Total files: ");
   Serial.println(mp3.getTotalFiles());
+  
 }
 
 
@@ -108,6 +129,10 @@ void loop(void) {
     Serial.print("  UID Value: ");
     nfc.PrintHex(uid, uidLength);
 
+    // We will compare the sum of the values in our testTag[] array
+    // with the sum of the values in the the that is currently being read.
+    // If the sum is the same, then we will consider them equal.
+    
     int uidSum = 0;
     int testTagSum = 0;
 
@@ -116,29 +141,28 @@ void loop(void) {
       // sum up values in the arrays
       uidSum += uid[i];
       testTagSum += testTag[i];
-      
-      //Serial.print(" 0x");
-      Serial.print(String(uid[i])); //HEX
-      Serial.print(" "); //HEX
+
+
+      // Print the UID values for the tag being read
+      Serial.print(String(uid[i])); //currently printing in decimal (DEC), originally printed HEX
+      Serial.print(" "); 
 
     }
-      Serial.println("");
-
-// testTag
-    for (uint8_t i=0; i < uidLength; i++) 
-      {
-        //Serial.print(" 0x");
-        Serial.print(String(testTag[i])); //HEX
-        Serial.print(" "); //HEX
-
-      }
-      Serial.println("");
-
-
-    
-    Serial.println("uid......");
-    Serial.println(String(uid[2]));
     Serial.println("");
+    
+
+    // testTag - just printing the values of our testTag - not needed to function
+    for (uint8_t i=0; i < uidLength; i++) 
+    {
+      Serial.print(String(testTag[i])); //currently printing in decimal (DEC), originally printed HEX
+      Serial.print(" ");
+
+    }
+    Serial.println("");
+
+
+    // We are using miFares with uidLength of 7, scroll down to 'uidLength == 7'
+    
     
     if (uidLength == 4)
     {
@@ -193,19 +217,21 @@ void loop(void) {
     if (uidLength == 7)
     {
 
-//      uint8_t testTag[] = {4, 121, 10, 42, 34, 75, 132};
-
+      // Compare sums of testTag and uid
+      // If they are equal, trigger audio playback
       if(testTagSum == uidSum){
-        Serial.println("We have a match");
+        //Serial.println("We have a match");
 
-        // if the UID is correct play the audio track
+        // If the UID is correct play the audio track
         mp3.playTrack(1);
+        
         Serial.println("Now playing track " + (String)mp3.getTrackNo());
       }
       else{
         Serial.println("No match");
+      }
 
-        }
+      
       // We probably have a Mifare Ultralight card ...
       Serial.println("Seems to be a Mifare Ultralight tag (7 byte UID)");
     
